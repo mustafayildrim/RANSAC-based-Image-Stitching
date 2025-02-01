@@ -44,12 +44,21 @@ pip install numpy matplotlib torch kornia opencv-python scipy scikit-image
 
 ### **Part B: Homography-Based Stitching**
 
-1. **Modify Part A's Code for Homography Estimation** instead of Affine.
-2. **Ensure a Minimum of Four Correspondences** for Homography Calculation.
-3. **Use Singular Value Decomposition (SVD)** to solve the **homogeneous linear system**.
-4. **Apply RANSAC to Select the Best Homography Model.**
-5. **Generate a Full Panorama with Three Images** from York University's Glendon Hall dataset.
-6. **Test on a Custom Image Set** and visualize the stitched result.
+1. **Preprocess Images:** Convert to grayscale.
+
+2. **Detect Keypoints & Extract Descriptors:** Use **SIFT** to find image features.
+
+3. **Feature Matching:** Compute **Euclidean distances** between feature descriptors.
+
+4. **Prune Matches:** Select the best matches based on a distance threshold.
+
+5. **Estimate Homography Transformation using RANSAC:** Identify the best transformation model with a minimum of four correspondences.
+
+6. **Solve the Homogeneous System using SVD:** Use **Singular Value Decomposition (SVD)** to compute the transformation matrix.
+
+7. **Generate the Panorama:** Warp images and blend them into a mosaic.
+
+8. **Test on a Custom Image Set** and visualize the stitched result.
 
 ## Visualizations
 
